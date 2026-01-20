@@ -37,6 +37,7 @@ jobs:
         uses: actions/upload-artifacts@v2
         with:
           name: test-results
+          path: pytest-report.xml
 
       - name: Notify on success
         if: success()
