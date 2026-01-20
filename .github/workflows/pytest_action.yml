@@ -1,0 +1,47 @@
+name: "Testing with Pytest"
+run-nam: Pytest
+on:
+  push:
+    branches:
+      - main
+    issues:
+      types:
+        - opened
+        - labeled
+    label:
+      types:
+        - created
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: action/checkout@v2
+
+      - name: Setup Python
+        uses: action/setup-python@v2
+        with:
+          python-version: 3.8
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run tests and generate XML report
+        run: pytest --junitxml=pytest-report.xml
+        continue-on-error: false
+
+      - name: Upload test result
+        if: always()
+        uses: actions/upload-artifacts@v2
+        with:
+          name: test-results
+
+      - name: Notify on success
+        if: sucess()
+        run: echo "TESTS PASSED SUCESSFULLY"
+
+      - name: Notify on failure
+        if: failure()
+        run:  echo "TESTS FAILED"
