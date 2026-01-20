@@ -39,7 +39,7 @@ jobs:
           name: test-results
 
       - name: Notify on success
-        if: sucesss()
+        if: success()
         run: echo "TESTS PASSED SUCESSFULLY"
 
       - name: Notify on failure
