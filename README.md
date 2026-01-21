@@ -1,10 +1,30 @@
+## Github Lab1 - Using Github actions to run automated tests on code push
+
 Step 1: Create Virtual Environment
+```
+python -m venv .github-env
+
+source .github-env/bin/activate
+```
 
 Step 2: Create calculator.py in src Folder
+-   We are going to create a simple calculator that performs basic calucations. We are going to create calculator.py in src folder. This script contains a set of mathematical functions to perform arithematic operations like 
+-   add(x,y)
+-   subract(x,y)
+-   multiply(x,y)
+-   add_all(x,y,z)
+
+
 
 Step 3: Create tests using Pytest and Unittests
 
-Write test cases in test_*.py file
+-   We are going to use **Pytest** and **Unittests** frameworks for testing. Testing is done to make sure application/model/code is behaving as expected. Testing is done to make sure it works on all edge cases. It also helps to catch and fix bugs early in the development process.
+
+**Using Pytest**
+-   Installation\
+```pip install pytest```
+-   Tests are written as regular Python functions, and test file names typically start with test_ or end with _test.py.
+-   Similarly write test functions starting with test_ or ending with _test
 
 Run Pytest tests:
 ```
